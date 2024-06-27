@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BookStore</title>
+        style
+            include ../static/css/contact.css
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css', integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==', crossorigin='anonymous', referrerpolicy='no-referrer')
+        script(src='../static/contact.js')
+    </head>
+    <body>
+        <div class="about">
+            <div class="logo">
+                <img src="static/book-store.jpg">
+            </div>
+            <div class="about_tag" >
+                <a href="/home" style="text-decoration: none;color: #000"><h1>Contact Us</h1></a><br>
+                <p>
+                |    We value your connection with our online bookstore and welcome any inquiries, feedback, 
+                |   or suggestions you may have. Whether you're seeking assistance with an order, curious 
+                |   about our selection, or simply want to share your thoughts, our dedicated customer support
+                |   team is here to help. Feel free to reach out through the contact form below, and we'll 
+                |   respond promptly.
+                </p>
+                <p>
+                |   Thank you for choosing us as your literary destination—we look forward to hearing from you!
+                </p><br>
+                <!-- email  -->
+                <p> You can Email us:
+                |  <a href="mailto:wadhervivek@gmail.com">wadhervivek@gmail.com</a><br>
+                </p>
+                <h2>------------------------ OR ------------------------</h2><br>
+                <!-- contact form  -->
+                <form action="/submit" method="post" name="contact-form">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name.." required><br>
+
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required><br>
+
+                    <label for="lname">Contact </label>
+                    <input type="text" id="lname" name="contact" placeholder="Your contact.." required><br>
+
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.. till 1000 words" style="height:200px" required></textarea><br>
+
+                    <input type="submit" value="Submit" onclick="submitForm()"> 
+                    <input type="reset" value="Reset" >
+                </form></div>
+        </div>
+    </body>
+</html>

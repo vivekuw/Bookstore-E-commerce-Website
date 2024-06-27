@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BookStore</title>
+    script.
+        function remove_item(item_id)
+        {
+        if(confirm("Are you sure you want to remove it?"))
+        {
+        window.location.href = `/remove_item?id=${item_id}`;
+        }
+        }
+    <link href="https://getbootstrap.com/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body style="background-image: url(../static/libaray.jpg);">
+    <!-- product list -->
+    <div class="container-fluid mt-2 mb-5" style="overflow: y 10px;;" >
+        <h1 class="text-center" style="color: aliceblue;text-decoration: none;" ><a href="\home"><b>Spirituality Book</b></a></h1>
+        <div class="mt-2 mb-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card" style="box-shadow: 0 0 10px #089da1;">
+                        <div class="card-header"style="text-align:center;"><b>BOOK List</b></div>
+                        <div class="card-body" style="box-shadow: 0 0 10px #089da1;">
+                            <div class="row">
+                                each product in products
+                                    <div class="col-sm-3 text-center">
+                                        img.img-thumbnail.mb-3(src=`../images/${product.product_image}`)
+                                        h4=product.product_name
+                                        h3.text-danger=product.product_price
+                                        form(method='post', action='/add_cart')
+                                            input(type='hidden', name='product_id', value=product.product_id)
+                                            input(type='hidden', name='product_name', value=product.product_name)
+                                            input(type='hidden', name='product_price', value=product.product_price)
+                                            input.btn.btn-warning(type='submit', value='Add to Cart')
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <!-- shopping cart -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header" style="box-shadow: 0 0 10px #089da1;text-align:center;"><b>Shopping Cart</b></div>
+                        <div class="card-body"style="box-shadow: 0 0 10px #089da1;">
+                            <table class="table">
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Total Price</th>
+                                    <th>Remove</th>
+                                </tr>
+                                if cart.length > 0
+                                    - let total = 0
+                                    each item in cart
+                                        - total += parseFloat(item.quantity) * parseFloat(item.product_price)
+                                        tr
+                                            td= item.product_name
+                                            td= item.quantity
+                                            td= item.product_price
+                                            td= (parseFloat(item.quantity) * parseFloat(item.product_price))
+                                            td
+                                                button.btn.btn-danger.btn-sm(type='button', onclick=`remove_item(${item.product_id})`) Remove
+                                    tr
+                                        td(colspan='3', align='right') Total
+                                        td= total
+                                        td &nbsp;
+                                else
+                                    tr
+                                        td(colspan='5', align='center') No Item Found in Cart
+                            </table>
+                        </div>
+                    </div>
+            </div>
+            <br>  
+        </div>
+    </div>
+</body>
+</html>
